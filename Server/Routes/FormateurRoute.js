@@ -11,7 +11,7 @@ router.post("/formateur_login", (req, res) => {
       if (err) return res.json({ loginStatus: false, Error: "Query error" });
       if (result.length > 0) {
         bcrypt.compare(req.body.password, result[0].password, (err, response) => {
-            if (err) return res.json({ loginStatus: false, Error: "Wrong Password" });
+            if (err) return res.json({ loginStatus: false, Error: "mauvais mot de passe" });
             if(response) {
                 const email = result[0].email;
                 const token = jwt.sign(
@@ -25,7 +25,7 @@ router.post("/formateur_login", (req, res) => {
         })
         
       } else {
-          return res.json({ loginStatus: false, Error:"wrong email or password" });
+          return res.json({ loginStatus: false, Error:"mauvais mot de passe ou mail" });
       }
     });
   });

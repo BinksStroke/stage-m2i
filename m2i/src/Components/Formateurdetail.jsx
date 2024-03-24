@@ -4,13 +4,13 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 
 const formateurDetail = () => {
-    const [formateur, setformateur] = useState([])
+    const [formateur, setFormateur] = useState([])
     const {id} = useParams()
     const navigate = useNavigate()
     useEffect(() => {
         axios.get('http://localhost:3000/formateur/detail/'+id)
         .then(result => {
-            setformateur(result.data[0])
+            setFormateur(result.data[0])
         })
         .catch(err => console.log(err))
     }, [])

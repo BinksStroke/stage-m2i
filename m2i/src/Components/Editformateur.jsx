@@ -4,21 +4,21 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const Editformateur = () => {
     const {id} = useParams()
-    const [formateur, setformateur] = useState({
+    const [formateur, setFormateur] = useState({
         name: "",
         email: "",
         numero: "",
         address: "",
         formation_id: "",
       });
-      const [formation, setformation] = useState([])
+      const [formation, setFormation] = useState([])
       const navigate = useNavigate()
 
       useEffect(()=> {
         axios.get('http://localhost:3000/auth/formation')
         .then(result => {
             if(result.data.Status) {
-                setformation(result.data.Result);
+                setFormation(result.data.Result);
             } else {
                 alert(result.data.Error)
             }
@@ -26,7 +26,7 @@ const Editformateur = () => {
 
         axios.get('http://localhost:3000/auth/formateur/'+id)
         .then(result => {
-            setformateur({
+            setFormateur({
                 ...formateur,
                 name: result.data.Result[0].name,
                 email: result.data.Result[0].email,
@@ -39,7 +39,7 @@ const Editformateur = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.put('http://localhost:3000/auth/edit_formateur/'+id, employee)
+        axios.put('http://localhost:3000/auth/edit_formateur/'+id, formateur)
         .then(result => {
             if(result.data.Status) {
                 navigate('/dashboard/formateur')
@@ -63,9 +63,9 @@ const Editformateur = () => {
               className="form-control rounded-0"
               id="inputName"
               placeholder="Enter Name"
-              value={employee.name}
+              value={formateur.name}
               onChange={(e) =>
-                setformateur({ ...formateur, name: e.target.value })
+                setFormateur({ ...formateur, name: e.target.value })
               }
             />
           </div>
@@ -81,7 +81,7 @@ const Editformateur = () => {
               autoComplete="off"
               value={formateur.email}
               onChange={(e) =>
-                setformateur({ ...formateur, email: e.target.value })
+                setFormateur({ ...formateur, email: e.target.value })
               }
             />
           </div>
@@ -97,7 +97,7 @@ const Editformateur = () => {
               autoComplete="off"
               value={formateur.numero}
               onChange={(e) =>
-                setformateur({ ...formateur, salary: e.target.value })
+                setFormateur({ ...formateur, salary: e.target.value })
               }
             />
           </div>
@@ -113,7 +113,7 @@ const Editformateur = () => {
               autoComplete="off"
               value={formateur.addresse}
               onChange={(e) =>
-                setformateur({ ...formateur, address: e.target.value })
+                setFormateur({ ...formateur, address: e.target.value })
               }
             />
           </div>
@@ -122,7 +122,7 @@ const Editformateur = () => {
               Formation
             </label>
             <select name="formation" id="formation" className="form-select"
-                onChange={(e) => setformateur({...formateur, formation_id: e.target.value})}>
+                onChange={(e) => setFormateur({...formateur, formation_id: e.target.value})}>
               {formation.map((c) => {
                 return <option value={c.id}>{c.name}</option>;
               })}

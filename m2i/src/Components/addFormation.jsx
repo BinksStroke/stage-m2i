@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 // Définition du composant AddFormation
-const AddFormation = () => {
+const addFormation = () => {
   // État pour la formation
   const [formation, setFormation] = useState()
   const navigate = useNavigate()
@@ -30,7 +30,7 @@ const AddFormation = () => {
   return (
     <div className='d-flex justify-content-center align-items-center h-75'>
       <div className='p-3 rounded w-25 border'>
-          <h2>Ajouter une formationy</h2>
+          <h2>Ajouter une formation</h2>
           <form onSubmit={handleSubmit}>
               <div className='mb-3'>
                   <label htmlFor="formation"><strong>Formation:</strong></label>
@@ -45,4 +45,4 @@ const AddFormation = () => {
 }
 
 // Exportation du composant AddFormation
-export default AddFormation
+export default addFormation

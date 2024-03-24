@@ -21,7 +21,7 @@ router.post("/adminlogin", (req, res) => {
       res.cookie('token', token)
       return res.json({ loginStatus: true });
     } else {
-        return res.json({ loginStatus: false, Error:"wrong email or password" });
+        return res.json({ loginStatus: false, Error:"mauvais mot de passe ou mail" });
     }
   });
 });
@@ -31,6 +31,14 @@ router.get('/formation', (req, res) => {
     con.query(sql, (err, result) => {
         if(err) return res.json({Status: false, Error: "Query Error"})
         return res.json({Status: true, Result: result})
+    })
+})
+
+router.post('/add_formation', (req, res) => {
+    const sql = "INSERT INTO formation (`name`) VALUES (?)"
+    con.query(sql, [req.body.formation], (err, result) => {
+        if(err) return res.json({Status: false, Error: "Query Error"})
+        return res.json({Status: true})
     })
 })
 
