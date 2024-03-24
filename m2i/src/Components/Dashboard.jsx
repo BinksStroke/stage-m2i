@@ -7,10 +7,13 @@ const Dashboard = () => {
   const anvigate = useNavigate()
   axios.defaults.withCredentials = true
   const handleLogout = () => {
+        // Appel API de déconnexion
     axios.get('http://localhost:3000/auth/logout')
     .then(result => {
       if(result.data.Status) { 
+        // Suppression de l'item 'valid' de localStorage
         localStorage.removeItem("valid")
+         // Redirection vers la page d'accueil
         anvigate('/')
       }
     })

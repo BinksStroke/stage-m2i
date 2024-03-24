@@ -56,7 +56,7 @@ const AddFormateur = () => {
         <h3 className="text-center">Ajouter formateur</h3>
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="col-12">
-            <label for="inputName" className="form-label">
+            <label htmlFor="inputName" className="form-label">
               Nom
             </label>
             <input
@@ -70,7 +70,7 @@ const AddFormateur = () => {
             />
           </div>
           <div className="col-12">
-            <label for="inputEmail4" className="form-label">
+            <label htmlFor="inputEmail4" className="form-label">
               Email
             </label>
             <input
@@ -85,7 +85,7 @@ const AddFormateur = () => {
             />
           </div>
           <div className="col-12">
-            <label for="inputPassword4" className="form-label">
+            <label htmlFor="inputPassword4" className="form-label">
               Mot de passe
             </label>
             <input
@@ -97,7 +97,7 @@ const AddFormateur = () => {
                 setFormateur({ ...formateur, password: e.target.value })
               }
             />
-            <label for="inputNumero" className="form-label">
+            <label htmlFor="inputNumero" className="form-label">
               Numero de telephone
             </label>
             <input
@@ -112,7 +112,7 @@ const AddFormateur = () => {
             />
           </div>
           <div className="col-12">
-            <label for="inputAddress" className="form-label">
+            <label htmlFor="inputAddress" className="form-label">
               Addresse
             </label>
             <input
@@ -127,7 +127,7 @@ const AddFormateur = () => {
             />
           </div>
           <div className="col-12">
-            <label for="formation" className="form-label">
+            <label htmlFor="formation" className="form-label">
               Formation
             </label>
             <select name="formation" id="formation" className="form-select"

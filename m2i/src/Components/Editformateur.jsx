@@ -55,7 +55,7 @@ const Editformateur = () => {
         <h3 className="text-center">Edit formateur</h3>
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="col-12">
-            <label for="inputName" className="form-label">
+            <label htmlFor="inputName" className="form-label">
               Nom
             </label>
             <input
@@ -70,7 +70,7 @@ const Editformateur = () => {
             />
           </div>
           <div className="col-12">
-            <label for="inputEmail4" className="form-label">
+            <label htmlFor="inputEmail4" className="form-label">
               Email
             </label>
             <input
@@ -86,7 +86,7 @@ const Editformateur = () => {
             />
           </div>
           <div className='col-12'>
-            <label for="inputSalary" className="form-label">
+            <label htmlFor="inputSalary" className="form-label">
               Numero
             </label>
             <input
@@ -102,7 +102,7 @@ const Editformateur = () => {
             />
           </div>
           <div className="col-12">
-            <label for="inputAddress" className="form-label">
+            <label htmlFor="inputAddress" className="form-label">
               Addresse
             </label>
             <input
@@ -118,12 +118,12 @@ const Editformateur = () => {
             />
           </div>
           <div className="col-12">
-            <label for="formation" className="form-label">
-              Category
+            <label htmlFor="formation" className="form-label">
+              Formation
             </label>
             <select name="formation" id="formation" className="form-select"
-                onChange={(e) => setformateur({...employee, formation_id: e.target.value})}>
-              {category.map((c) => {
+                onChange={(e) => setformateur({...formateur, formation_id: e.target.value})}>
+              {formation.map((c) => {
                 return <option value={c.id}>{c.name}</option>;
               })}
             </select>
