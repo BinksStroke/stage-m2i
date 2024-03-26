@@ -21,7 +21,7 @@ router.post("/adminlogin", (req, res) => {
       res.cookie('token', token)
       return res.json({ loginStatus: true });
     } else {
-        return res.json({ loginStatus: false, Error:"mauvais mot de passe ou mail" });
+        return res.json({ loginStatus: false, Error:"wrong email or password" });
     }
   });
 });
@@ -42,15 +42,7 @@ router.post('/add_formation', (req, res) => {
     })
 })
 
-router.post('/Ajout', (req, res) => {
-    const sql = "INSERT INTO ajout (`name`) VALUES (?)"
-    con.query(sql, [req.body.Ajout], (err, result) => {
-        if(err) return res.json({Status: false, Error: "Query Error"})
-        return res.json({Status: true})
-    })
-})
-
-
+// image upload 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'Public/Images')
@@ -62,10 +54,10 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage
 })
-
+// end imag eupload 
 
 router.post('/add_formateur',upload.single('image'), (req, res) => {
-    const sql = `INSERT INTO formateur 
+    const sql = `INSERT INTO formateur
     (name,email,password, address, numero,image, formation_id) 
     VALUES (?)`;
     bcrypt.hash(req.body.password, 10, (err, hash) => {
@@ -105,7 +97,7 @@ router.get('/formateur/:id', (req, res) => {
 
 router.put('/edit_formateur/:id', (req, res) => {
     const id = req.params.id;
-    const sql = `UPDATE formateur 
+    const sql = `UPDATE formateur
         set name = ?, email = ?, numero = ?, address = ?, formation_id = ? 
         Where id = ?`
     const values = [
@@ -147,7 +139,7 @@ router.get('/formateur_count', (req, res) => {
 })
 
 router.get('/numero_count', (req, res) => {
-    const sql = "select sum(numero) as numeroOFEmp from formateur";
+    const sql = "select sum(numero) as salaryOFEmp from formateur";
     con.query(sql, (err, result) => {
         if(err) return res.json({Status: false, Error: "Query Error"+err})
         return res.json({Status: true, Result: result})

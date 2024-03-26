@@ -14,6 +14,8 @@ import Editformateur from './Components/Editformateur'
 import Debut from './Components/Debut'
 import FormateurLogin from './Components/FormateurLogin'
 import Formateurdetail from './Components/Formateurdetail'
+import RoutePriver from './Components/RoutePriver'
+
 
 
 function App() {
@@ -22,12 +24,15 @@ function App() {
   return (
   <BrowserRouter>
   <Routes>
-  <Route path='/debut' element={<Debut/>} > </Route>
+  <Route path='/' element={<Debut/>} > </Route>
     <Route path='/adminlogin' element={<Login />}></Route>
     <Route path='/formateur_login' element={<FormateurLogin />}></Route>
     <Route path='/formateur_detail/:id' element={<Formateurdetail/>} > </Route>
     <Route path='/dashboard' element={
-    <Dashboard />}>
+        <RoutePriver >
+          <Dashboard />
+        </RoutePriver>
+      }>
       <Route path='' element={<Home/>} >  </Route>
       <Route path='/dashboard/formateur' element={<Formateur/>} >  </Route>
       <Route path='/dashboard/formation' element={<Formation/>} >  </Route>

@@ -21,7 +21,7 @@ const Formation = () => {
         <div className='d-flex justify-content-center'>
             <h3>Liste des formations</h3>
         </div>
-        <Link to="/dashboard/add_formation" className='btn btn-success'>Add Cetegory</Link>
+        <Link to="/dashboard/add_formation" className='btn btn-success'>Ajouter formation</Link>
         <div className='mt-3'>
             <table className='table'>
                 <thead>

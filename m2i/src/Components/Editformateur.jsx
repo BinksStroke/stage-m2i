@@ -30,7 +30,7 @@ const Editformateur = () => {
                 ...formateur,
                 name: result.data.Result[0].name,
                 email: result.data.Result[0].email,
-                addresse: result.data.Result[0].addresse,
+                address: result.data.Result[0].address,
                 numero: result.data.Result[0].numero,
                 formation_id: result.data.Result[0].formation_id,
             })
@@ -86,18 +86,18 @@ const Editformateur = () => {
             />
           </div>
           <div className='col-12'>
-            <label htmlFor="inputSalary" className="form-label">
+            <label htmlFor="input" clasNumerosName="form-label">
               Numero
             </label>
             <input
               type="text"
               className="form-control rounded-0"
-              id="inputSalary"
-              placeholder="Enter Salary"
+              id="inputNumero"
+              placeholder="Enter Numero"
               autoComplete="off"
               value={formateur.numero}
               onChange={(e) =>
-                setFormateur({ ...formateur, salary: e.target.value })
+                setFormateur({ ...formateur, numero: e.target.value })
               }
             />
           </div>
@@ -111,7 +111,7 @@ const Editformateur = () => {
               id="inputAddress"
               placeholder="1234 Main St"
               autoComplete="off"
-              value={formateur.addresse}
+              value={formateur.address}
               onChange={(e) =>
                 setFormateur({ ...formateur, address: e.target.value })
               }

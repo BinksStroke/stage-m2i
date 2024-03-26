@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 const AddFormateur = () => {
   const [formateur, setFormateur] = useState({
-    name: "",
-    email: "",
-    password: "",
-    numero: "",
-    address: "",
-    formation_id: "",
-    image: "",
+    name: '',
+    email: '',
+    password: '',
+    numero: '',
+    address: '',
+    formation_id: '',
+    image: '',
   });
   const [formation, setFormation] = useState([]);
   const navigate = useNavigate()
